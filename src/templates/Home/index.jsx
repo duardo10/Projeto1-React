@@ -1,5 +1,6 @@
+import React from 'react';
 import './styles.css';
-import { Component, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { loadPosts } from '../../utils/load-posts';
 import { Posts } from '../../components/Posts';
 import { Button } from '../../components/Button';
@@ -15,7 +16,7 @@ export const Home = () => {
   
   const noMorePosts = page + postsPerPage >= allPosts.length;
   
-  const filteredPosts = !!searchValue ? 
+  const filteredPosts = !searchValue ? 
     allPosts.filter(post=> {
       return post.title.toLowerCase().includes(
         searchValue.toLowerCase()
